@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+pers.walyex.common.redis.config.RedisConfigure

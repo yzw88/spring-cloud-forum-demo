@@ -1,0 +1,4 @@
+org.springframework.context.ApplicationContextInitializer=\
+pers.walyex.common.log.config.TtlMDCAdapterInitializer
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+pers.walyex.common.log.config.LogConfig
