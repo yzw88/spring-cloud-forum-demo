@@ -1,0 +1,17 @@
+http://localhost:18081/order/getOrderInfo?orderId=1
+
+#表单测试
+http://localhost:18081/order/postFormData?orderId=1&productName=测试商品
+
+#json测试测试
+http://localhost:18081/order/postJson
+{
+	"orderId":1,
+	"productName":"测222商品"
+}
+
+https://segmentfault.com/q/1010000019638779
+
+https://blog.csdn.net/seantdj/article/details/100546713
+
+https://www.520mwx.com/view/43369

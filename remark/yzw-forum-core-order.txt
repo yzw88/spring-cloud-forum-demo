@@ -1,0 +1,9 @@
+http://localhost:18080/check
+
+http://localhost:18080/getOrderInfo?orderId=1
+
+
+http://localhost:18080/postJson
+
+
+http://localhost:18080/postFormData
