@@ -28,6 +28,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
         </dependency>
+        <dependency>
+            <groupId>pers.walyex</groupId>
+            <artifactId>yzw-forum-common-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -79,7 +79,7 @@ public class ParameterHandleFilter implements GlobalFilter, Ordered {
             //修改了body要重新写content length
 //            headers.remove("Content-Length");
 
-            MyCachedBodyOutputMessage outputMessage = new MyCachedBodyOutputMessage(exchange, headers);
+            ParameterCachedBodyOutputMessage outputMessage = new ParameterCachedBodyOutputMessage(exchange, headers);
             return bodyInserter.insert(outputMessage, new BodyInserterContext()).then(Mono.defer(() -> {
                 ServerHttpRequest decorator = this.decorate(exchange, headers, outputMessage);
                 return returnMono(chain, exchange.mutate().request(decorator).build());
@@ -133,7 +133,7 @@ public class ParameterHandleFilter implements GlobalFilter, Ordered {
         return Mono.error(new Exception(message));
     }
 
-    ServerHttpRequestDecorator decorate(ServerWebExchange exchange, HttpHeaders headers, MyCachedBodyOutputMessage outputMessage) {
+    ServerHttpRequestDecorator decorate(ServerWebExchange exchange, HttpHeaders headers, ParameterCachedBodyOutputMessage outputMessage) {
         return new ServerHttpRequestDecorator(exchange.getRequest()) {
             @Override
             public HttpHeaders getHeaders() {

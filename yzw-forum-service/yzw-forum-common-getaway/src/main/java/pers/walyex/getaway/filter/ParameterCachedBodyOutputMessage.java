@@ -17,12 +17,12 @@ import java.util.function.Supplier;
  * @author Waldron Ye
  * @date 2019/12/8 9:19
  */
-public class MyCachedBodyOutputMessage implements ReactiveHttpOutputMessage {
+public class ParameterCachedBodyOutputMessage implements ReactiveHttpOutputMessage {
     private final DataBufferFactory bufferFactory;
     private final HttpHeaders httpHeaders;
     private Flux<DataBuffer> body = Flux.error(new IllegalStateException("The body is not set. Did handling complete with success?"));
 
-    public MyCachedBodyOutputMessage(ServerWebExchange exchange, HttpHeaders httpHeaders) {
+    public ParameterCachedBodyOutputMessage(ServerWebExchange exchange, HttpHeaders httpHeaders) {
         this.bufferFactory = exchange.getResponse().bufferFactory();
         this.httpHeaders = httpHeaders;
     }

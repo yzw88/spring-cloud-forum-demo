@@ -46,6 +46,7 @@ public class AccountController {
 
     @GetMapping("/getAccountInfo")
     public Object getAccountInfo() {
+        log.info("getAccountInfo==");
         AccountResq accountResq = new AccountResq();
         accountResq.setAccountId(2);
         accountResq.setEmail("1303QQ.com");

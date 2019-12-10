@@ -12,4 +12,14 @@ public class CommonConstant {
      * 成功编码
      */
     public static final int CODE_SUCCESS = 9999;
+
+    /**
+     * 追踪id
+     */
+    public  static final String TRACE_ID = "traceId";
+
+    /**
+     * 线程id
+     */
+    public  static final String THREAD_ID = "threadId";
 }

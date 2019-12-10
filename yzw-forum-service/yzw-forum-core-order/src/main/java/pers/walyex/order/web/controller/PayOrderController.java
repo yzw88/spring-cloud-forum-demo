@@ -50,10 +50,10 @@ public class PayOrderController {
         }
 
         PayOrder payOrder = this.payOrderService.getByOrderId(orderId);
-        ResponseDataDTO<AccountResq> resqResponseDataDTO = this.accountFeignClient.getAccountInfo();
+        ResponseDataDTO<AccountResq> responseDataDTO = this.accountFeignClient.getAccountInfo();
         Map<String, Object> map = new HashMap<>(8);
         map.put("orderInfo", payOrder);
-        map.put("accountInfo", resqResponseDataDTO.getData());
+        map.put("accountInfo", responseDataDTO.getData());
         return ResultUtil.getSuccessResult(map);
     }
 
