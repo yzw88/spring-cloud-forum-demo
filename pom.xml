@@ -39,6 +39,7 @@
         <modules.version>0.0.1-SNAPSHOT</modules.version>
         <jedis.version>2.9.0</jedis.version>
         <transmittable-thread-local.version>2.11.0</transmittable-thread-local.version>
+        <httpclient.version>4.5.6</httpclient.version>
     </properties>
 
     <dependencyManagement>
@@ -149,6 +150,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>transmittable-thread-local</artifactId>
                 <version>${transmittable-thread-local.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
             </dependency>
             <!--子工程start-->
             <dependency>

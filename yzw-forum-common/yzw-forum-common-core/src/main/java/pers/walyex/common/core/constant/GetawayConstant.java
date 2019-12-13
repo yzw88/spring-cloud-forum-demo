@@ -12,4 +12,9 @@ public class GetawayConstant {
      * 追踪id的key
      */
     public static final String KEY_TRACE_ID = "traceId";
+
+    /**
+     * 请求参数
+     */
+    public static final String REQUEST_PARAMETER = "requestParameter";
 }

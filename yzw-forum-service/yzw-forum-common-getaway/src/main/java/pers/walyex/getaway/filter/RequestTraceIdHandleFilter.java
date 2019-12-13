@@ -4,12 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.MDC;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
-import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import pers.walyex.common.core.constant.CommonConstant;
+import pers.walyex.common.core.dto.ResponseDataDTO;
+import pers.walyex.common.core.util.ResultUtil;
 import reactor.core.publisher.Mono;
 
 /**
@@ -20,11 +20,11 @@ import reactor.core.publisher.Mono;
  */
 @Component
 @Slf4j
-public class TraceIdHandleFilter implements GlobalFilter, Ordered {
+public class RequestTraceIdHandleFilter extends AbstractBaseRequestFilter {
+
 
     @Override
-    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-
+    protected ResponseDataDTO<Mono<Void>> filterHandle(ServerWebExchange exchange, GatewayFilterChain chain) {
         String traceId = RandomStringUtils.randomAlphanumeric(5);
         MDC.put(CommonConstant.THREAD_ID, traceId);
         log.info("TraceIdHandleFilter create traceId={}", traceId);
@@ -33,11 +33,12 @@ public class TraceIdHandleFilter implements GlobalFilter, Ordered {
         ServerHttpRequest request = exchange.getRequest().mutate().header(CommonConstant.TRACE_ID, traceId).build();
         //将现在的request 变成 change对象
         ServerWebExchange build = exchange.mutate().request(request).build();
-        return chain.filter(build);
+
+        return ResultUtil.getSuccessResult(chain.filter(build));
     }
 
     @Override
-    public int getOrder() {
+    protected int getFilterOrder() {
         return -10;
     }
 }

@@ -1,4 +1,4 @@
-package pers.walyex.getaway.filter;
+package pers.walyex.getaway.output;
 
 import org.reactivestreams.Publisher;
 import org.springframework.core.io.buffer.DataBuffer;
