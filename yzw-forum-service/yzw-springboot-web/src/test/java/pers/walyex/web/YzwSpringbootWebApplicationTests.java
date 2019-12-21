@@ -1,13 +1,13 @@
-package pers.walyex.forum;
+package pers.walyex.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class YzwSpringbootForumApplicationTests {
+class YzwSpringbootWebApplicationTests {
 
     @Test
-    public void contextLoads() {
+    void contextLoads() {
     }
 
 }

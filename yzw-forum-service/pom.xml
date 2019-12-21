@@ -16,5 +16,6 @@
         <module>yzw-forum-core-account</module>
         <module>yzw-forum-core-inventory</module>
         <module>yzw-springboot-forum</module>
+        <module>yzw-springboot-web</module>
     </modules>
 </project>

@@ -7,9 +7,9 @@
         <artifactId>yzw-forum-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>yzw-springboot-forum</artifactId>
+    <artifactId>yzw-springboot-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>yzw-springboot-forum</name>
+    <name>yzw-springboot-web</name>
     <description>Demo project for Spring Boot</description>
     <packaging>jar</packaging>
 
@@ -28,22 +28,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--springboot end-->
-        <!--mybatis-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>pers.walyex</groupId>
-            <artifactId>yzw-forum-common-model</artifactId>
-        </dependency>
-        <!--mysql-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -56,10 +40,6 @@
         <dependency>
             <groupId>pers.walyex</groupId>
             <artifactId>yzw-forum-spring-boot-start-log</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pers.walyex</groupId>
-            <artifactId>yzw-forum-spring-boot-start-redis</artifactId>
         </dependency>
     </dependencies>
 
@@ -82,7 +62,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>pers.walyex.forum.YzwSpringbootForumApplication
+                    <mainClass>pers.walyex.web.YzwSpringbootWebApplication
                     </mainClass>
                     <layout>ZIP</layout>
                 </configuration>
