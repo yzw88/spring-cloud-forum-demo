@@ -40,6 +40,8 @@
         <jedis.version>2.9.0</jedis.version>
         <transmittable-thread-local.version>2.11.0</transmittable-thread-local.version>
         <httpclient.version>4.5.6</httpclient.version>
+        <easyexcel.version>2.1.4</easyexcel.version>
+        <pagehelper-spring-boot-starter.version>1.2.13</pagehelper-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -155,6 +157,16 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter.version}</version>
             </dependency>
             <!--子工程start-->
             <dependency>
