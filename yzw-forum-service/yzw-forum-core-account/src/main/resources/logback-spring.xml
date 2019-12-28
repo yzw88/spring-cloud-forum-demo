@@ -24,7 +24,7 @@
             <!-- 除按日志记录之外，还配置了日志文件不能超过20M，若超过20M，日志文件会以索引0开始，
             命名日志文件，例如log-error-2013-12-21.0.log -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>1MB</maxFileSize>
+                <maxFileSize>20MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <!-- 追加方式记录日志 -->

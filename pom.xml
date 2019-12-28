@@ -194,6 +194,11 @@
                 <artifactId>yzw-forum-spring-boot-start-log</artifactId>
                 <version>${modules.version}</version>
             </dependency>
+            <dependency>
+                <groupId>pers.walyex</groupId>
+                <artifactId>yzw-forum-spring-boot-start-core</artifactId>
+                <version>${modules.version}</version>
+            </dependency>
             <!--子工程end-->
         </dependencies>
     </dependencyManagement>

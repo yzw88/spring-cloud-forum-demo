@@ -1,13 +1,10 @@
 package pers.walyex.forum.controller;
 
-import com.alibaba.excel.ExcelWriter;
-import com.alibaba.excel.metadata.Sheet;
-import com.alibaba.excel.support.ExcelTypeEnum;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pers.walyex.common.core.dto.ResponseDataDTO;
-import pers.walyex.common.core.util.ResultUtil;
 import pers.walyex.forum.dto.BasePageQueryDTO;
 import pers.walyex.forum.dto.PageResp;
 import pers.walyex.forum.service.PayOrderService;
@@ -17,7 +14,7 @@ import pers.walyex.order.model.PayOrder;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,9 +57,11 @@ public class TestController {
         //设置日期头
         response.setDateHeader("Expires", 0);
 
+        BasePageQueryDTO basePageQueryDTO = new BasePageQueryDTO();
+        basePageQueryDTO.setPageSize(50);
+        List<PayOrder> pageList = this.payOrderService.listPageOrder(basePageQueryDTO);
 
-        ExcelWriter writer = null;
-        OutputStream outputStream = response.getOutputStream();
+        PageInfo<PayOrder> pageInfo = new PageInfo<>((pageList == null || pageList.isEmpty()) ? new ArrayList<>() : pageList);
 
     }
 

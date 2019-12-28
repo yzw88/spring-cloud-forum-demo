@@ -41,6 +41,20 @@ public class ResultUtil {
         return responseDataDTO;
     }
 
+    /**
+     * 获取信息
+     *
+     * @param code    响应编码
+     * @param message 消息
+     * @param <T>     object
+     * @return responseDataDTO
+     */
+    public static <T> ResponseDataDTO<T> getResult(int code, String message) {
+        ResponseDataDTO<T> responseDataDTO = new ResponseDataDTO<>();
+        responseDataDTO.setCode(code);
+        responseDataDTO.setMessage(message);
+        return responseDataDTO;
+    }
 
     /**
      * 获取枚举信息

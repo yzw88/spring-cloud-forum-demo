@@ -2,7 +2,7 @@
 <configuration>
 
     <contextName>日志配置</contextName>
-    <property name="LOG_PATH" value="D:/logs/yzw-forum-core-order"/>
+    <property name="LOG_PATH" value="D:/logs/yzw-springboot-web"/>
 
     <!-- 不带彩色的日志在控制台输出时候的设置 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -82,7 +82,6 @@
     <logger name="org.springframework" level="WARN"/>
 
     <logger name="org.springframework.web" level="INFO"/>
-    <logger name="pers.walyex.order.dao" level="debug"/>
 
     <root level="INFO">
         <appender-ref ref="FILEERROR"/>

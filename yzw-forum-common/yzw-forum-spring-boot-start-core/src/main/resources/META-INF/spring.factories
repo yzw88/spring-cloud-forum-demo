@@ -1,0 +1,4 @@
+org.springframework.context.ApplicationContextInitializer=\
+pers.walyex.core.config.TtlMDCAdapterInitializer
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+pers.walyex.core.config.AppConfig
