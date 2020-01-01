@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pers.walyex.common.core.dto.ResponseDataDTO;
 import pers.walyex.common.core.enums.ResultEnum;
 import pers.walyex.common.core.util.ResultUtil;
+import pers.walyex.core.controller.AbstractBaseController;
 import pers.walyex.order.dto.AccountResq;
 import pers.walyex.order.feign.AccountFeignClient;
 import pers.walyex.order.model.PayOrder;
@@ -27,7 +28,7 @@ import java.util.Map;
  */
 @RestController
 @Slf4j
-public class PayOrderController {
+public class PayOrderController  extends AbstractBaseController {
 
     @Resource
     private PayOrderService payOrderService;

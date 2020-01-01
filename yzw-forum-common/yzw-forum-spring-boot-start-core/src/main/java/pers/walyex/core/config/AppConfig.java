@@ -32,7 +32,7 @@ public class AppConfig {
      * @return filterRegistrationBean
      */
     @Bean
-    public FilterRegistrationBean registerLogbackFilter(@Qualifier("logbackFilter") Filter filter) {
+    public FilterRegistrationBean<Filter> registerLogbackFilter(@Qualifier("logbackFilter") Filter filter) {
         FilterRegistrationBean<Filter> registration = new FilterRegistrationBean<>();
         registration.setFilter(filter);
         registration.addUrlPatterns("/*");

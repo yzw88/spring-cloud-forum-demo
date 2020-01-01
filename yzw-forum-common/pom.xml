@@ -14,7 +14,6 @@
         <module>yzw-forum-common-model</module>
         <module>yzw-forum-common-core</module>
         <module>yzw-forum-spring-boot-start-redis</module>
-        <module>yzw-forum-spring-boot-start-log</module>
         <module>yzw-forum-spring-boot-start-core</module>
     </modules>
     <artifactId>yzw-forum-common</artifactId>

@@ -52,6 +52,12 @@ public class AccountController {
         accountResq.setEmail("1303QQ.com");
         accountResq.setUsername("张三");
 
+        try {
+            Thread.sleep(4000L);
+            log.info("模拟睡眠");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return ResultUtil.getSuccessResult(accountResq);
     }
 }

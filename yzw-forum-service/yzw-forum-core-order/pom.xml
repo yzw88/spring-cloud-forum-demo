@@ -43,15 +43,7 @@
         <!--springboot start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--springboot end-->
         <dependency>
@@ -69,19 +61,11 @@
         </dependency>
         <dependency>
             <groupId>pers.walyex</groupId>
-            <artifactId>yzw-forum-common-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pers.walyex</groupId>
             <artifactId>yzw-forum-common-model</artifactId>
         </dependency>
         <dependency>
             <groupId>pers.walyex</groupId>
-            <artifactId>yzw-forum-common-util</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pers.walyex</groupId>
-            <artifactId>yzw-forum-spring-boot-start-log</artifactId>
+            <artifactId>yzw-forum-spring-boot-start-core</artifactId>
         </dependency>
     </dependencies>
 
