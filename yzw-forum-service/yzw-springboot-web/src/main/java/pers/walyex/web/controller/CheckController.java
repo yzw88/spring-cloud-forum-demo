@@ -7,7 +7,10 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pers.walyex.common.core.util.ResultUtil;
+import pers.walyex.web.handle.PayNotifyHandle;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -22,6 +25,9 @@ public class CheckController {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+
+    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(5);
 
 
     @GetMapping("/check")
@@ -43,6 +49,16 @@ public class CheckController {
         String value2 = ops.get(key);
         log.info("从redis中获取value={}", value2);
 
+        return ResultUtil.getSuccessResult(200);
+    }
+
+    @GetMapping("/threadTest")
+    public Object threadTest() {
+        log.info("threadTest  test===");
+        for (int i = 0; i < 5; i++) {
+            PayNotifyHandle payNotifyHandle = new PayNotifyHandle();
+            EXECUTOR_SERVICE.execute(payNotifyHandle);
+        }
         return ResultUtil.getSuccessResult(200);
     }
 }

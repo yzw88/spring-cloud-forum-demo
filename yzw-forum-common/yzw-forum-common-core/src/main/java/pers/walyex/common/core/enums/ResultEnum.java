@@ -41,6 +41,10 @@ public enum ResultEnum {
      */
     BUSINESS_ERROR(1116, "业务异常"),
     /**
+     * 不支持当前媒体类型
+     */
+    NO_EXIST_INTERFACE(1117, "不存在的接口调用"),
+    /**
      * 成功
      */
     SUCCESS(9999, "成功");

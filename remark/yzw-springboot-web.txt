@@ -1,3 +1,4 @@
 http://localhost:18182/check
 
 http://localhost:18182/redisCheck
+http://localhost:18182/threadTest

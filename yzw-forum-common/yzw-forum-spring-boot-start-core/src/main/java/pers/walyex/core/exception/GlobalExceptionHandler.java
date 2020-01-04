@@ -8,6 +8,7 @@ import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import pers.walyex.common.core.enums.ResultEnum;
 import pers.walyex.common.core.exception.BusinessException;
 import pers.walyex.common.core.util.ResultUtil;
@@ -23,7 +24,9 @@ import java.util.List;
 @ControllerAdvice
 @RestControllerAdvice
 @Slf4j
+@ResponseBody
 public class GlobalExceptionHandler {
+
     /**
      * 系统繁忙异常
      *
@@ -31,7 +34,6 @@ public class GlobalExceptionHandler {
      * @return object
      */
     @ExceptionHandler(value = Exception.class)
-    @ResponseBody
     public Object handleException(Exception e) {
         log.error("Exception异常内容:", e);
         return ResultUtil.getResult(ResultEnum.ERROR_SYS);
@@ -44,12 +46,10 @@ public class GlobalExceptionHandler {
      * @return object
      */
     @ExceptionHandler(value = BusinessException.class)
-    @ResponseBody
     public Object handleBusinessException(BusinessException e) {
         log.error("BusinessException异常内容:", e);
         return ResultUtil.getResult(e.getCode(), e.getMessage());
     }
-
 
     /**
      * IllegalArgumentException异常处理返回json
@@ -87,6 +87,15 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = e.getBindingResult();
         List<ObjectError> objectErrorList = bindingResult.getAllErrors();
         return ResultUtil.getResult(ResultEnum.PARAMETER_ERROR.getCode(), objectErrorList.get(0).getDefaultMessage());
+    }
+
+    /**
+     * 404异常
+     */
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public Object noHandlerFoundException(NoHandlerFoundException e) {
+        return ResultUtil.getResult(ResultEnum.NO_EXIST_INTERFACE);
     }
 
 }
