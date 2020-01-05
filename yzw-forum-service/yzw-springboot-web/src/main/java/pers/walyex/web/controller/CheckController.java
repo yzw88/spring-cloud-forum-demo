@@ -33,6 +33,7 @@ public class CheckController {
     @GetMapping("/check")
     public Object check() {
         log.info("check====");
+
         return ResultUtil.getSuccessResult(200);
     }
 
