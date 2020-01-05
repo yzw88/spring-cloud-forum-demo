@@ -55,11 +55,12 @@ public class CheckController {
 
     @GetMapping("/threadTest")
     public Object threadTest() {
-        log.info("threadTest  test===");
+        log.info("threadTest  test start===");
         for (int i = 0; i < 5; i++) {
             PayNotifyHandle payNotifyHandle = new PayNotifyHandle();
             EXECUTOR_SERVICE.execute(payNotifyHandle);
         }
+        log.info("threadTest  test end===");
         return ResultUtil.getSuccessResult(200);
     }
 }
