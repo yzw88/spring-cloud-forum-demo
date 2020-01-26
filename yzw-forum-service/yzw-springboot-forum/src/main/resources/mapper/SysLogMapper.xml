@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.walyex.forum.dao.SysLogMapper">
+    <resultMap id="BaseResultMap" type="pers.walyex.order.model.SysLog">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="operation" jdbcType="VARCHAR" property="operation"/>
+        <result column="method" jdbcType="VARCHAR" property="method"/>
+        <result column="params" jdbcType="VARCHAR" property="params"/>
+        <result column="time" jdbcType="BIGINT" property="time"/>
+        <result column="ip" jdbcType="VARCHAR" property="ip"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, username, operation, method, params, time, ip, create_date
+  </sql>
+    <insert id="insertSelective" parameterType="pers.walyex.order.model.SysLog">
+        insert into sys_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="operation != null">
+                operation,
+            </if>
+            <if test="method != null">
+                method,
+            </if>
+            <if test="params != null">
+                params,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+            <if test="ip != null">
+                ip,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="operation != null">
+                #{operation,jdbcType=VARCHAR},
+            </if>
+            <if test="method != null">
+                #{method,jdbcType=VARCHAR},
+            </if>
+            <if test="params != null">
+                #{params,jdbcType=VARCHAR},
+            </if>
+            <if test="time != null">
+                #{time,jdbcType=BIGINT},
+            </if>
+            <if test="ip != null">
+                #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <delete id="deleteBefore48HourLog">
+        DELETE  from
+        sys_log  where create_date <![CDATA[ <= ]]> DATE_ADD(NOW(),INTERVAL -48 HOUR)
+    </delete>
+</mapper>

@@ -1,0 +1,39 @@
+1、建表sql
+①日志表：
+CREATE TABLE `sys_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL COMMENT '用户名',
+  `operation` varchar(50) DEFAULT NULL COMMENT '用户操作',
+  `method` varchar(200) DEFAULT NULL COMMENT '请求方法',
+  `params` varchar(5000) DEFAULT NULL COMMENT '请求参数',
+  `time` bigint(20) NOT NULL COMMENT '执行时长(毫秒)',
+  `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
+  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COMMENT='系统日志';
+
+②：用户表
+CREATE TABLE `sys_user` (
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `password` varchar(100) DEFAULT NULL COMMENT '密码',
+  `salt` varchar(20) DEFAULT NULL COMMENT '盐',
+  `email` varchar(100) DEFAULT NULL COMMENT '邮箱',
+  `mobile` varchar(32) NOT NULL COMMENT '手机号',
+  `status` tinyint(4) DEFAULT NULL COMMENT '状态  0：禁用   1：启用',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COMMENT='系统用户';
+
+
+任务：搭建一个springboot+ssm的工程，数据源用hikariCP，注意命名规范。
+1：用户的注册(新增)
+2：用户资料更新
+3：用户的禁用和启用
+4：用户列表(需要分页，搜索条件：用户名，手机号，邮箱)
+5：用户导出Excel功能（导出用户列表的数据，无需分页。比如：每页显示10条，通过用户名模糊查询出11条数据，则要导出11条数据）
+6、以上每个接口的记录都要插入日志表(可通过切面的方式体现)
+7、整合定时任务(使用Scheduled)，每天中午12点执行一次。清空前两天的日志(可调用日志相关的service进行清空)
+
+以上要符合restful api接口规范。

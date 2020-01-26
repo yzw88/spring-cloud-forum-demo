@@ -28,6 +28,19 @@ public class ResultUtil {
     }
 
     /**
+     * 获取成功信息
+     *
+     * @param <T> object
+     * @return responseDataDTO
+     */
+    public static <T> ResponseDataDTO<T> getSuccessResult() {
+        ResponseDataDTO<T> responseDataDTO = new ResponseDataDTO<>();
+        responseDataDTO.setCode(ResultEnum.SUCCESS.getCode());
+        responseDataDTO.setMessage(ResultEnum.SUCCESS.getMsg());
+        return responseDataDTO;
+    }
+
+    /**
      * 获取枚举信息
      *
      * @param resultEnum resultEnum
