@@ -14,8 +14,8 @@ import pers.walyex.forum.aspect.LogAspect;
 public class AppConfig {
 
 
-    @Bean
+ /*   @Bean
     public LogAspect createLogAspect() {
         return new LogAspect();
-    }
+    }*/
 }

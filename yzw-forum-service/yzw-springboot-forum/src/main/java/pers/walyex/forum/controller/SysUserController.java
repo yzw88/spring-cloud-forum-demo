@@ -1,5 +1,6 @@
 package pers.walyex.forum.controller;
 
+import com.alibaba.excel.EasyExcel;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -7,9 +8,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pers.walyex.common.core.enums.ResultEnum;
 import pers.walyex.common.core.util.ResultUtil;
 import pers.walyex.common.util.FastJsonUtil;
+import pers.walyex.forum.dto.UploadDataListener;
 import pers.walyex.forum.dto.user.req.UserQueryReq;
 import pers.walyex.forum.dto.user.req.UserRegisterReq;
 import pers.walyex.forum.dto.user.req.UserStatusUpdateReq;
@@ -20,6 +23,7 @@ import pers.walyex.forum.util.RegexpUtil;
 import pers.walyex.order.model.SysUser;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
 
@@ -149,5 +153,18 @@ public class SysUserController {
         return ResultUtil.getSuccessResult(pageInfo);
     }
 
+    /**
+     * 上传
+     *
+     * @param file
+     * @return
+     * @throws IOException
+     */
+    @PostMapping("/upload")
+    public Object upload(@RequestParam("file") MultipartFile file) throws IOException {
+        log.info("上传===");
+        EasyExcel.read(file.getInputStream(), UserRegisterReq.class, new UploadDataListener()).sheet().doRead();
+        return ResultUtil.getSuccessResult();
+    }
 
 }
