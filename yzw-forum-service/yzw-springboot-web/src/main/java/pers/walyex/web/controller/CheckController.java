@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import pers.walyex.common.core.util.ResultUtil;
 import pers.walyex.web.handle.PayNotifyHandle;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -62,5 +65,17 @@ public class CheckController {
         }
         log.info("threadTest  test end===");
         return ResultUtil.getSuccessResult(200);
+    }
+
+
+    @GetMapping("/getUserInfo")
+    public Object getUserInfo(HttpServletRequest request) {
+
+        String token = request.getHeader("token");
+        log.info("从请求头获取的token={}", token);
+        Map<String, Object> map = new HashMap<>(4);
+        map.put("name", "叶子");
+        map.put("sex", "男");
+        return ResultUtil.getSuccessResult(map);
     }
 }
