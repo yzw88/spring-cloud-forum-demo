@@ -21,7 +21,7 @@ public class SysLogJob {
     private SysLogService sysLogService;
 
     //    @Scheduled(cron = "0 0 12 * * ?")
-    @Scheduled(cron = "0/5 * * * * ?")
+//    @Scheduled(cron = "0/5 * * * * ?")
     private void logJob() {
         log.info("定时任务执行======");
         int count = this.sysLogService.deleteBefore48HourLog();
