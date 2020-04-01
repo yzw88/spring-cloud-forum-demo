@@ -20,7 +20,6 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //进行业务处理
 
-        int i = 1/0;
         return true;
     }
 

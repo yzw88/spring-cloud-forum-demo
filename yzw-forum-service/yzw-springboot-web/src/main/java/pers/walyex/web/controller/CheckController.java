@@ -68,7 +68,7 @@ public class CheckController {
     }
 
 
-    @GetMapping("/getUserInfo")
+    @GetMapping("/forum/getUserInfo")
     public Object getUserInfo(HttpServletRequest request) {
 
         String token = request.getHeader("token");
@@ -76,6 +76,7 @@ public class CheckController {
         Map<String, Object> map = new HashMap<>(4);
         map.put("name", "叶子");
         map.put("sex", "男");
+        map.put("info", "我是：yzw-springboot-web");
         return ResultUtil.getSuccessResult(map);
     }
 }
