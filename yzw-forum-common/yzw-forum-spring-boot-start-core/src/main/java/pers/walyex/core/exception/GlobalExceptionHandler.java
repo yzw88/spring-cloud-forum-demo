@@ -21,7 +21,6 @@ import java.util.List;
  * @author Waldron Ye
  * @date 2019/6/2 13:31
  */
-@ControllerAdvice
 @RestControllerAdvice
 @Slf4j
 @ResponseBody

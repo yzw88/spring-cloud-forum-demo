@@ -21,7 +21,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //进行业务处理
         log.info("preHandle==");
 
-        return false;
+        return true;
     }
 
 

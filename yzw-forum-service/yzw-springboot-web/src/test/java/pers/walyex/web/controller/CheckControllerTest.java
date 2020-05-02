@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import pers.walyex.common.util.CertUtil;
 import pers.walyex.common.util.FastJsonUtil;
+import pers.walyex.common.util.HttpClientUtil;
 import pers.walyex.common.util.RSAUtil;
 import pers.walyex.web.YzwSpringbootWebApplicationTests;
 
@@ -112,5 +113,17 @@ public class CheckControllerTest extends YzwSpringbootWebApplicationTests {
         } catch (Exception e) {
             log.error("加解密异常", e);
         }
+    }
+
+    @Test
+    public void httpTest() {
+        String url = "http://192.168.31.214:18182/check";
+        try {
+            String result = HttpClientUtil.doGet(url);
+            log.info("请求结果:result={}", result);
+        } catch (Exception e) {
+            log.info("请求异常", e);
+        }
+
     }
 }
