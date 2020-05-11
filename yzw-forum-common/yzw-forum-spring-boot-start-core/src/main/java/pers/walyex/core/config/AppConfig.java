@@ -1,10 +1,13 @@
 package pers.walyex.core.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import pers.walyex.core.exception.GlobalExceptionHandler;
 import pers.walyex.core.filter.LogbackFilter;
+import pers.walyex.core.init.MyTestBean;
+import pers.walyex.core.init.MyTestBean1;
 
 import javax.servlet.Filter;
 
@@ -14,6 +17,7 @@ import javax.servlet.Filter;
  * @author Waldron Ye
  * @date 2019/12/8 17:02
  */
+@Slf4j
 public class AppConfig {
 
     /**
@@ -49,6 +53,17 @@ public class AppConfig {
     @Bean
     public GlobalExceptionHandler createGlobalExceptionHandler() {
         return new GlobalExceptionHandler();
+    }
+
+    @Bean
+    public MyTestBean createMyTestBean() {
+
+        Class<?> testBean = MyTestBean.class;
+        Class<?>[] subclass = testBean.getInterfaces();
+        for (int i = 0; i < subclass.length; i++) {
+            log.info("获取名称:name={}", subclass[i].getName());
+        }
+        return new MyTestBean1();
     }
 
 }
