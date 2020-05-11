@@ -20,6 +20,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //进行业务处理
         log.info("preHandle==");
+        String url = request.getRequestURI();
+        log.info("拦截的url={}", url);
 
         return true;
     }

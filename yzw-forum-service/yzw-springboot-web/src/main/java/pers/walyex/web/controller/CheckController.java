@@ -36,12 +36,6 @@ public class CheckController {
     @GetMapping("/check")
     public Object check() {
         log.info("check====");
-        try {
-            Thread.sleep(6000L);
-        } catch (InterruptedException e) {
-            log.info("睡眠异常", e);
-        }
-
         return ResultUtil.getSuccessResult(200);
     }
 
