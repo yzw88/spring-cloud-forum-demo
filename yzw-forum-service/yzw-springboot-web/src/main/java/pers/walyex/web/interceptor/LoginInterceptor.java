@@ -21,7 +21,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //进行业务处理
         log.info("preHandle==");
         String url = request.getRequestURI();
-        log.info("拦截的url={}", url);
+        log.info("拦截的url={},方法={}", url, request.getMethod());
 
         return true;
     }
