@@ -28,7 +28,7 @@
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
         <springboot.version>2.2.5.RELEASE</springboot.version>
         <mybatis.version>2.1.1</mybatis.version>
-        <mysql-connector.version>8.0.11</mysql-connector.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
         <lombok.version>1.18.10</lombok.version>
         <fastjson.version>1.2.62</fastjson.version>
         <swagger.version>2.9.2</swagger.version>
