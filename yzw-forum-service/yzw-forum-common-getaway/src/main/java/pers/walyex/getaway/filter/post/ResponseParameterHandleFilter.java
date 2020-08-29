@@ -72,11 +72,7 @@ public class ResponseParameterHandleFilter extends AbstractBaseFilter {
 
         };
 
-        return chain.filter(exchange.mutate().
-
-                response(decoratedResponse).
-
-                build());
+        return chain.filter(exchange.mutate().response(decoratedResponse).build());
     }
 
     @Override
