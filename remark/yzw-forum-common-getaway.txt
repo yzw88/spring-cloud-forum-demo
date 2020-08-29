@@ -4,7 +4,9 @@ http://localhost:18081/order/getOrderInfo?orderId=1
 http://localhost:18081/order/postFormData?orderId=1&productName=测试商品
 
 #json测试测试
-http://localhost:18081/order/postJson
+http://localhost:18081/order/redirect/baiDuTest
+http://localhost:18081/order/check2
+http://localhost:18081/order/postJson2
 {
 	"orderId":1,
 	"productName":"测222商品"

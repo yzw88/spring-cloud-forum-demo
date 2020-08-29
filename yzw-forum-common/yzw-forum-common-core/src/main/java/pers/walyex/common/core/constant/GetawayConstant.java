@@ -17,4 +17,10 @@ public class GetawayConstant {
      * 请求参数
      */
     public static final String REQUEST_PARAMETER = "requestParameter";
+    /**
+     * 空json
+     */
+    public static final String BANK_JSON = "{}";
+
+
 }
