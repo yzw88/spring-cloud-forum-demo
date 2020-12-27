@@ -1,5 +1,9 @@
 package pers.walyex.demo.poi;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfCopy;
+import com.itextpdf.text.pdf.PdfImportedPage;
+import com.itextpdf.text.pdf.PdfReader;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hslf.model.Slide;
 import org.apache.poi.hslf.model.TextRun;
@@ -212,5 +216,36 @@ public class PPTConvertImageTest {
 
     }
 
+    @Test
+    public void test2() {
 
+        String pdfFile = "D:\\桌面资料\\我的考试资料\\a.pdf";
+        String newFile = "D:\\桌面资料\\我的考试资料\\b.pdf";
+        partitionPdfFile(pdfFile, newFile, 3,3);
+    }
+
+    public static void partitionPdfFile(String pdfFile,
+                                        String newFile, int from, int end) {
+        Document document = null;
+        PdfCopy copy = null;
+        try {
+            PdfReader reader = new PdfReader(pdfFile);
+            int n = reader.getNumberOfPages();
+            if (end == 0) {
+                end = n;
+            }
+
+            document = new Document(reader.getPageSize(1));
+            copy = new PdfCopy(document, new FileOutputStream(newFile));
+            document.open();
+            for (int j = from; j <= end; j++) {
+                document.newPage();
+                PdfImportedPage page = copy.getImportedPage(reader, j);
+                copy.addPage(page);
+            }
+            document.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
