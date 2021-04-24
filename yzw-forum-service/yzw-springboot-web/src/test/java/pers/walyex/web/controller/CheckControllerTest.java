@@ -6,14 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
-import pers.walyex.common.util.CertUtil;
 import pers.walyex.common.util.FastJsonUtil;
 import pers.walyex.common.util.HttpClientUtil;
-import pers.walyex.common.util.RSAUtil;
 import pers.walyex.web.YzwSpringbootWebApplicationTests;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -62,57 +58,6 @@ public class CheckControllerTest extends YzwSpringbootWebApplicationTests {
 
         List list = redisTemplate.boundListOps("namelist2").range(0, 2);
         log.info("获取list={}", FastJsonUtil.toJson(list));
-    }
-
-    @Test
-    public void rsaTest() {
-        String json = "{\n" +
-                "    \"name\": \"BeJson\",\n" +
-                "    \"url\": \"http://www.bejson.com\",\n" +
-                "    \"page\": 88,\n" +
-                "    \"isNonProfit\": true,\n" +
-                "    \"address\": {\n" +
-                "        \"street\": \"科技园路.\",\n" +
-                "        \"city\": \"江苏苏州\",\n" +
-                "        \"country\": \"中国\"\n" +
-                "    },\n" +
-                "    \"links\": [\n" +
-                "        {\n" +
-                "            \"name\": \"Google\",\n" +
-                "            \"url\": \"http://www.google.com\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"Baidu\",\n" +
-                "            \"url\": \"http://www.baidu.com\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"SoSo\",\n" +
-                "            \"url\": \"http://www.SoSo.com\"\n" +
-                "        }\n" +
-                "    ]\n" +
-                "}";
-
-        String charset = "UTF-8";
-        String appId = "test001";
-        // 证书密码
-        String keyStorePwd = "";
-        // 证书类型
-        String creType = CertUtil.CERTYPE_PFX;
-
-        String cerPath = "D:\\cert\\rsa\\public-rsa.cer";
-        String pfxPath = "D:\\cert\\rsa\\user-rsa.pfx";
-
-        try {
-            PrivateKey privateKey = (PrivateKey) CertUtil.getKey(pfxPath, creType, keyStorePwd, true);
-            PublicKey bizPublicKey = CertUtil.getPublicKey(cerPath);
-            String encryptJson = RSAUtil.encrypt(privateKey, bizPublicKey, charset, appId, json);
-            log.info("加密的字符串为:encryptJson{}", encryptJson);
-
-            String decryptJson = RSAUtil.decry(privateKey, bizPublicKey, encryptJson);
-            log.info("解密的字符串为:decryptJson{}", decryptJson);
-        } catch (Exception e) {
-            log.error("加解密异常", e);
-        }
     }
 
     @Test
