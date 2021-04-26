@@ -34,7 +34,7 @@
         <swagger.version>2.9.2</swagger.version>
         <jwt.version>8.2.1</jwt.version>
         <commons-lang3.version>3.7</commons-lang3.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <org.slf4j-api.version>1.7.29</org.slf4j-api.version>
         <modules.version>0.0.1-SNAPSHOT</modules.version>
         <jedis.version>2.9.0</jedis.version>
