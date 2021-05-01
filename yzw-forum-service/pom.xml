@@ -18,5 +18,7 @@
         <module>yzw-springboot-forum</module>
         <module>yzw-springboot-web</module>
         <module>yzw-springboot-demo</module>
+        <module>springcloud-alibaba-order</module>
+        <module>springcloud-alibaba-inventory</module>
     </modules>
 </project>
