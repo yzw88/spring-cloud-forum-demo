@@ -30,7 +30,7 @@
         <springboot.version>2.3.3.RELEASE</springboot.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <mybatis-spring-boot-starter.version>2.1.4</mybatis-spring-boot-starter.version>
-        <mysql-connector.version>8.0.24</mysql-connector.version>
+        <mysql-connector.version>8.0.28</mysql-connector.version>
         <lombok.version>1.18.20</lombok.version>
         <fastjson.version>1.2.76</fastjson.version>
         <jwt.version>8.2.1</jwt.version>
